@@ -1,61 +1,127 @@
-function validaCadastro(aluno) {
-    // Verifica se o nome do aluno tem no mínimo 10 caracteres
-    if (aluno.nome.length < 10) {
-        console.log("Erro: Nome do aluno deve ter no mínimo 10 caracteres");
-        return;
-    }
 
-    // Verifica se a idade do aluno é maior que 14
-    if (aluno.idade <= 14) {
-        console.log("Erro: Idade do aluno deve ser maior que 14");
-        return;
-    }
 
-    // Verifica se o aluno está cursando no mínimo 3 matérias
-    if (aluno.cursando.length < 3) {
-        console.log("Erro: O aluno deve estar cursando no mínimo 3 matérias");
-        return;
-    }
+let chamadaDeAlunos = [
+    {
+        nome: "Kayky",
+        idade: 16,
+        materias: [
+            {
+                nome: "Tecnologias em Inteligência Artificial",
+                presenca: 75,
+                nota: 10
+            },
+            {
+                nome: "Programação para Dispositivos Móveis",
+                presenca: 90,
+                nota: 10
+            },
+        ],
+        numeroChamada: 1221
+    },
+    {
+        nome: "Ana",
+        idade: 17,
+        materias: [
+            {
+                nome: "BD1",
+                presenca: 100,
+                nota: 10
+            },
+            {
+                nome: "Programação para Dispositivos Móveis",
+                presenca: 90,
+                nota: 7.5
+            },
+        ],
+        numeroChamada: 1222
+    },
+    {
+        nome: "Matheus",
+        idade: 20,
+        materias: [
+            {
+                nome: "Tecnologias em Inteligência Artificial",
+                presenca: 79,
+                nota: 8.5
+            },
+            {
+                nome: "Programação para Dispositivos Móveis",
+                presenca: 60,
+                nota: 6.5
+            },
+        ],
+        numeroChamada: 1223
+    },
+    {
+        nome: "Jorge",
+        idade: 19,
+        materias: [
+            {
+                nome: "Tecnologias em Inteligência Artificial",
+                presenca: 100,
+                nota: 10
+            },
+            {
+                nome: "Programação para Dispositivos Móveis",
+                presenca: 79,
+                nota: 10
+            },
+        ],
+        numeroChamada: 1224
+    },
+    {
+        nome: "Richard",
+        idade: 18,
+        materias: [
+            {
+                nome: "BD2",
+                presenca: 74,
+                nota: 10
+            },
+            {
+                nome: "BD1",
+                presenca: 90,
+                nota: 7
+            },
+        ],
+        numeroChamada: 1225
+    },
+]
 
-    // Verifica se o aluno tem no mínimo 2 presenças
-    if (aluno.presença.length < 2) {
-        console.log("Erro: O aluno deve ter no mínimo 2 presenças");
-        return;
-    }
-
-    // Verifica se o RA do aluno tem 7 caracteres
-    if (aluno.ra.length !== 7) {
-        console.log("Erro: O RA do aluno deve ter 7 caracteres");
-        return;
-    }
-
-    // Se todas as validações passarem, retorna o cadastro válido
-    return {
-        status: "valid",
-        message: "Cadastro válido",
-        aluno: aluno
+  function exibirAlunos (chamadaDeAlunos){
+    chamadaDeAlunos.forEach(aluno => {
+         console.log("nome do aluno: " + aluno.nome)
+         console.log("nota do aluno: " + aluno.nota)
+         return
+     });
     };
-}
 
-// Testes da função validaCadastro
-let aluno1 = {
-    nome: "Kayky de Brito da Silva", 
-    idade: 15,
-    cursando: ["TIA", "PDM", "BD1", "BD2", "AOS"],
-    presença: ["2022-01-01", "2022-01-02", "2022-01-03", "2022-01-04", "2022-01-05", "2022-01-06", "2022-01-07", "2022-01-08", "2022-01-09", "2022-01-10"],
-    ra: "22002200"
-};
+     function avaliaAluno(materia){
+        if (materia.nota >= 6 && materia.presenca >= 75) {
+            console.log("NOTA: " + materia.nota)
+            console.log("PRESENCA: " + materia.presenca)
+            console.log("APROVADO")
+        }else{
+            console.log("Alunos Reprovados:");
+            console.log("NOTA: " + materia.nota)
+            console.log("PRESENCA: " + materia.presenca)
+            console.log("REPROVADO")
+        }
+    return
+    }
+    function notaDasPonats(chamadaDeAlunos) {
+    for (i = 0; i < chamadaDeAlunos.nota.length; i++) {
+        if ( chamadaDeAlunos.notas[i] > maior ) {
+           maior = chamadaDeAlunos.nota[i];
+        }
+     }
+     for (i = 0; i < chamadaDeAlunos.length; i++) {
+        if ( chamadaDeAlunos.noats[i] > maior ) {
+           menor = chamadaDeAlunos.nota[i];    
+           }
+        }
+     console.log("Maior Nota: " + maior);
+     console.log("Menor Nota: " + menor );        
+    }
+        
 
-let aluno2 = {
-    nome: "João Silva", 
-    idade: 13,
-    cursando: ["TIA", "PDM"],
-    presença: ["2022-01-01"],
-    ra: "12345"
-};
-
-// Testando aluno1
-console.log(validaCadastro(aluno1));
-
-// Testando aluno2
-console.log(validaCadastro(aluno2));

@@ -1,0 +1,77 @@
+// Definição da lista de livros
+let livros = [
+    {
+        titulo: "Dom Casmurro",
+        paginas: 300,
+        genero: "clássico",
+    },
+    {
+        titulo: "IT a coisa",
+        paginas: 150,
+        genero: "terror",
+    },
+    {
+        titulo: "Jason",
+        paginas: 70,
+        genero: "terror",
+    },
+    {
+        titulo: "Chapéuzinho Vermelho",
+        paginas: 10,
+        genero: "clássico",
+    },
+    {
+        titulo: "Histórinhas de terror para crianãs",
+        paginas: 50,
+        genero: "clássico",
+    },
+]
+
+// Função para criar uma pilha
+function criarPilha() {
+    return [];
+}
+
+// Função para inserir um livro na pilha
+function inserirLivroNaPilha(pilha, livro) {
+    pilha.push(livro);
+    console.log(`Livro "${livro.titulo}" inserido na pilha.`);
+}
+
+// Função para retirar um livro da pilha
+function retirarLivroDaPilha(pilha) {
+    const livroRetirado = pilha.pop();
+    console.log(`Livro "${livroRetirado.titulo}" retirado da pilha.`);
+}
+
+// Função para verificar se um livro está na pilha pelo título
+function verificarExistenciaNaPilha(pilha, titulo) {
+    const livroEncontrado = pilha.find(livro => livro.titulo === titulo);
+    if (livroEncontrado) {
+        console.log(`O livro "${titulo}" está na pilha.`);
+    } else {
+        console.log(`O livro "${titulo}" não está na pilha.`);
+    }
+}
+
+// Função principal
+function main() {
+    // Criar a pilha
+    let pilhaDeLivros = criarPilha();
+
+    // Inserir os livros na pilha
+    for (let livro of livros) {
+        inserirLivroNaPilha(pilhaDeLivros, livro);
+    }
+
+    // Retirar os livros da pilha
+    while (pilhaDeLivros.length > 0) {
+        retirarLivroDaPilha(pilhaDeLivros);
+    }
+
+    // Verificar a existência de um livro na pilha pelo título
+    verificarExistenciaNaPilha(pilhaDeLivros, "Dom Casmurro");
+}
+
+// Executar a função principal
+main();

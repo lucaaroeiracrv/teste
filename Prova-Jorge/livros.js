@@ -29,10 +29,10 @@ let alunos = [
 ]
 
 
-    function criarPilha()
+    criarPilha();
     
-    function inserirLivro(pilha,livro)  
+    inserirLivro(pilha,livro);
 
-    function tirarLivro(pilha)
+    tirarLivro(pilha);
       
-    function verificarLivro(pilha, titulo)
+    verificarLivro(pilha, titulo);

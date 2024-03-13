@@ -1,0 +1,33 @@
+import { palavrasEscolaFundador, palavrasCursosTecnicos, palavrasMatricula } from './auxiliar.js';
+
+function respondePergunta(pergunta) {
+    const palavras = pergunta.split(" ");
+    let resposta = '';
+
+    if (verificaPalavras(palavras, palavrasEscolaFundador.probablyWords)) {
+        resposta = palavrasEscolaFundador.answer;
+    } else if (verificaPalavras(palavras, palavrasCursosTecnicos.probablyWords)) {
+        resposta = palavrasCursosTecnicos.answer;
+    } else if (verificaPalavras(palavras, palavrasMatricula.probablyWords)) {
+        resposta = palavrasMatricula.answer;
+    } else {
+        resposta = "Desculpe, não sei responder a essa pergunta. Por favor, entre em contato diretamente conosco para obter mais informações.";
+    }
+
+    return resposta;
+}
+
+function verificaPalavras(palavras, palavrasChave) {
+    let matched = 0;
+    for (const palavra of palavras) {
+        if (palavrasChave.includes(palavra.toLowerCase())) {
+            matched++;
+        }
+    }
+    return matched >= palavrasChave.length / 2;
+}
+
+console.log(respondePergunta("Qual o nome do fundador da instituição? Quem era ele?"));
+console.log(respondePergunta("A escola oferece curso técnico? Quais?"));
+console.log(respondePergunta("Onde entro em contato para matrícula ou rematrícula?"));
+console.log(respondePergunta("Qual é a capital da França?"));

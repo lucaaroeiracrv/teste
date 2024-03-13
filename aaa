@@ -1,0 +1,42 @@
+// Pergunta a ser feita (Mude o valor da variável para testar o código)
+const pergunta = "Qual a mensalidade do curso?"
+
+// Separar palavra por palavra da frase
+const palavras = pergunta.split(" ") // Divide a string em arrays (Ex: "ela_é" se torna ["ela", "é"]
+
+// Verifica se a pergunta é sobre o curso de Informática
+const verificaPergunta = () => {
+  const temas = ["mensalidade", "bolsa", "matérias", "estágio"] // Temas relacionados ao curso de Informática
+
+  for (let tema of temas) {
+    if (palavras.includes(tema)) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+// Responde de acordo com a pergunta
+const respondePergunta = () => {
+  if (!verificaPergunta()) {
+    return "Desculpe, só posso responder perguntas sobre o curso de Informática.";
+  }
+
+  if (!palavras.includes("Informática")) {
+    return "Por favor, faça perguntas relacionadas ao curso de Informática no Bento Quirino.";
+  }
+
+  // Sorteia uma introdução aleatória para nossa resposta na nossa array de strings
+  const introducoes = ["Bem...", "Hum...", "Ah...", "Quer mesmo só falar sobre", "Você quer saber sobre"]; // Uma lista de introduções que nosso "MODELO" tem
+  const introducao = introducoes[Math.floor(Math.random() * introducoes.length)]; // Sorteia um número, e pega uma palavra nessa posição na array
+
+  let resposta = palavras.join(" "); // Reconstroi a pergunta como resposta
+  resposta = resposta.replace("você", "eu"); // Muda "você" para "eu"
+
+  return `${introducao} ${resposta}`; // Interpola a introdução com a resposta que já temos
+}
+
+// Inicia o código
+console.log("Pergunta: " + pergunta);
+console.log("Resposta: " + respondePergunta());

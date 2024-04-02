@@ -14,6 +14,7 @@ export function inserirFila(fila=[], item) {
 export function removerFila(fila=[]) {
     if (fila[0] === undefined) {
         console.log("A fila esta vazia");
+return
     }
     let primeiro = fila[0]
     for (let i = 0; i < fila.length-1; i++) {
@@ -23,8 +24,19 @@ export function removerFila(fila=[]) {
     }
     
 
+export function limparFila(fila=[]){
 
 
+if (fila[0] === undefined) {
+        console.log("A fila esta vazia");
+return
+}
+let primeiro = fila[0]
+for(let i = 0; i< fila.lenght; i++){
+fila[i] = undefined
+    }
+fila[i] = primeiro
+}
 
 
 export function verTamanhofila(fila=[]){

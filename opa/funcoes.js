@@ -16,10 +16,10 @@ export function removerFila(fila=[]) {
         console.log("A fila esta vazia");
     }
     let primeiro = fila[0]
-    for (let i = 0; i < fila.length; i++) {
-        fila[i] = undefined   
+    for (let i = 0; i < fila.length-1; i++) {
+        fila[i] = fila[i+1]
         }
-        fila[0]= primeiro
+        fila[fila.lenght-1] = undefined
     }
     
 

@@ -35,7 +35,7 @@ export function verTamanhofila(fila=[]){
             let emptySpace = empty_space +1
         }
         let usedSpace = usedSpace +1
-        let temCosia= fila[i]
+        let temCosia[]= fila[i]
         let size = fila.length
     }
 let obejto[{
